@@ -1,0 +1,71 @@
+<!-- Header Start -->
+<header><img src="assets/images/logo.svg" /></header>
+
+<section class="dashboard">
+    <div class="container-fluid">
+        <div class="d-flex align-items-center justify-content-between py-3">
+            <p class="mb-0">Lorem ipsum is a dummy text</p>
+            <button class="button-delete" [disabled]="selectedData === true" (click)="removeSelectedRows()">Delete</button>
+        </div>
+
+        <!-- Table Start -->
+
+        <div class="mat-elevation-z8">
+            <mat-table #table [dataSource]="dataSource" cdkDropList (cdkDropListDropped)="drop($event)" matSort
+                cdkDropListData="dataSource" [cdkDropListDisabled]="dragDisabled">
+
+                <ng-container matColumnDef="selectAll">
+                    <mat-header-cell *matHeaderCellDef>
+
+                        <mat-checkbox (change)="$event ? masterToggle() : null"
+                            [checked]="selection.hasValue() && isAllSelected()"
+                            [indeterminate]="selection.hasValue() && !isAllSelected()">
+                        </mat-checkbox>
+                    </mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+
+                        <mat-checkbox (click)="$event.stopPropagation()"
+                            (change)="$event ? selection.toggle(element) : null"
+                            [checked]="selection.isSelected(element)">
+                        </mat-checkbox>
+                    </mat-cell>
+                </ng-container>
+
+                <!-- UserName Column -->
+                <ng-container matColumnDef="username">
+                    <mat-header-cell mat-sort-header *matHeaderCellDef> User Name </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.username}} </mat-cell>
+                </ng-container>
+
+                <!-- Email Column -->
+                <ng-container matColumnDef="email">
+                    <mat-header-cell mat-sort-header *matHeaderCellDef> Email ID </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.email}} </mat-cell>
+                </ng-container>
+
+                <!-- phone Column -->
+                <ng-container matColumnDef="phone">
+                    <mat-header-cell mat-sort-header *matHeaderCellDef> Phone Number </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.phone}} </mat-cell>
+                </ng-container>
+                
+                <!-- option Column -->
+                <ng-container matColumnDef="option">
+                    <mat-header-cell *matHeaderCellDef> Options <img class="pl-1" src="assets/images/info_icon.svg"
+                            alt="">
+                    </mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                        <div class="show_on_hover">
+                            <img class="pr-2"  (click)="removeRow(element.id)" src="assets/images/delete_icon.svg" alt="delete">
+                            <img (mousedown)="dragDisabled = false;" src="assets/images/drag_icon.svg" alt="drag">
+                        </div>
+                    </mat-cell>
+                </ng-container>
+
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selection.toggle(row)" cdkDrag
+                    [cdkDragData]="row"></mat-row>
+            </mat-table>
+        </div>
+    </div>
+</section>

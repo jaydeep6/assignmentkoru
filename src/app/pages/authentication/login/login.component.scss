@@ -1,0 +1,238 @@
+@import '../../../../assets/style/variable';
+@import '../../../../assets/style/defineMixins';
+
+.login_component {
+    @include position (relative);
+    @include height(100vh);
+    @include display-flex(flex);
+    @include flex-wrap(wrap);
+    @include align-items-center();
+    background: $ice_white;
+    background: linear-gradient(90deg, rgba(255, 241, 241, 1) 59%, rgba(255, 255, 255, 1) 59%);
+    overflow: hidden;
+
+    @include screen(mobile) {
+        overflow: visible;
+        @include height(100%);
+        background: $ice_white;
+        background: linear-gradient(0deg, rgba(255, 241, 241, 1) 45%, rgba(255, 255, 255, 1) 45%)
+    }
+
+    .row {
+        @include screen(mobile) {
+            flex-direction: column-reverse;
+        }
+    }
+
+    .left_panel_content {
+        @include position (relative);
+        @include height (100vh);
+        @include padding (189px 71px);
+        @include display-flex(flex);
+        justify-content: center;
+        flex-direction: column;
+
+        @include screen(tabletXL) {
+            @include  padding (2px 40px);
+        }
+
+        @include screen(mobile) {
+             @include padding-top (100px);
+             @include padding-left (24px);
+            @include height (auto);
+        }
+
+        .chat_icon {
+            @include position (absolute);
+            bottom: 0px;
+            right: 62px;
+            opacity: 0.3;
+
+            @include screen(tabletXL) {
+                bottom: 0px;
+            }
+
+            @include screen(mobile) {
+                bottom: 0px;
+            }
+
+            img {
+                @include height (160px);
+
+                @include screen(tabletXL) {
+                    @include  height (90px);
+                }
+
+                @include screen(mobile) {
+                    @include height (90px);
+                }
+            }
+        }
+
+        h1 {
+            @include font (52px);
+            @include line (71px);
+            color: $black;
+            @include font-weight (300);
+            @include margin-bottom (24px);
+            @include position (relative);
+
+            @include screen(tabletXL) {
+               @include font (49px);
+            }
+
+            @include screen(mobile) {
+               @include font (24px);
+               @include line (33px);
+            }
+
+            span {
+                @include font-weight (700);
+            }
+
+            &::before {
+                content: '';
+                @include position (absolute);
+                @include width (166px);
+                @include height (166px);
+                left: -20px;
+                top: -55px;
+                background: $orange;
+                opacity: 0.25;
+                filter: blur(51px);
+                @include screen(mobile) {
+                    @include  width (89px);
+                    @include  height (89px);
+                    top: 0px;
+                }
+            }
+        }
+    }
+
+
+    p {
+        @include font-weight (400);
+        @include font (16px);
+        @include line (22px);
+        color: $muted;
+        @include margin-bottom (0px);
+
+        @include screen(mobile) {
+            @include font (12px);
+            @include line (16px);
+        }
+    }
+
+
+    .right_content_view {
+        @include padding (106px 123px);
+
+        @include screen(tabletXL) {
+            @include  padding (106px 35px);
+        }
+
+        @include screen(mobile) {
+            @include padding (30px 30px);
+        }
+
+        .logo {
+            @include display-flex(flex);
+            @include flex-wrap(wrap);
+            @include flex-direction-column(column);
+            @include align-items-center();
+
+            @include screen(mobile) {
+                @include  margin-top (30px);
+            }
+
+            img:nth-child(2) {
+                @include padding-top (60px);
+                @include padding-bottom (8px);
+
+                @include screen(mobile) {
+                    @include padding-top (5px);
+                }
+            }
+
+            h3 {
+                @include font-weight (600);
+                @include font (24px);
+                @include line (33px);
+                color: $black;
+                @include margin-bottom (24px);
+
+                @include screen(mobile) {
+                    @include font (20px);
+                    @include line (27px);
+                }
+            }
+        }
+
+        .inputWithIcon {
+            @include  position (relative);
+
+            input {
+                @include width (100%);
+                @include margin (8px 0);
+                outline: none;
+                @include padding (8px);
+                transition: 0.3s;
+                @include font(14px);
+                @include line(20px);
+                @include font-weight(400);
+                @include padding-left (40px);
+                @include height (40px);
+                background: $white;
+                border: 1px solid #CCCCCC;
+                border-radius: 4px;
+
+                &:focus {
+                    box-shadow: 0 0 0 0.2rem rgba(217, 78, 59, .2);
+                }
+            }
+
+            img {
+                @include  position (absolute);
+                left: 5px;
+                top: 10px;
+                @include padding( 9px 8px);
+                transition: 0.3s;
+            }
+        }
+
+        .forgotPassword {
+            @include padding (1px 0px 13px 0px);
+            text-align: right;
+            display: block;
+            @include  font-weight (400);
+            @include font (12px);
+            @include line (16px);
+            color: #797979;
+        }
+        input[type='password'].ng-valid{
+            border: 1px solid green !important;
+        }
+
+        .sign_up {
+            @include font-weight (400);
+            display: block;
+            text-align: center;
+            @include font (12px);
+            @include line (16px);
+            text-align: center;
+            color: #797979;
+            @include padding-top( 20px);
+
+            span {
+                color: #444444;
+            }
+        }
+    }
+
+    .error_msg {
+        @include font-weight (400);
+        @include font (12px);
+        @include line (16px);
+        color: $red;
+    }
+}

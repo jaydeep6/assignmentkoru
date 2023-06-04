@@ -1,0 +1,38 @@
+@import '../../../assets/style/variable';
+@import '../../../assets/style/defineMixins';
+
+header {
+  background: $white;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
+  @include width (100%);
+  @include padding (10px 0px);
+}
+
+p {
+  @include font-weight (600);
+  @include font (13px);
+  @include line (19px);
+  color: $black;
+}
+
+.button-delete {
+  @include width (70px);
+  @include height (32px);
+  background: $orange;
+  border-radius: 4px;
+  @include font-weight (400);
+  @include font (14px);
+  @include line (20px);
+  color: $white;
+  outline: none;
+  border: none;
+}
+
+button:disabled,
+button[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  
+}
+
+

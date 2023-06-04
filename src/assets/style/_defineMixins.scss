@@ -1,0 +1,181 @@
+
+//ul clear
+@mixin ul-clear{
+	padding:0;
+	margin:0;
+}
+
+//line height
+@mixin line ($lineheight-value){
+	line-height:$lineheight-value;
+}
+@mixin height ($height){
+	height:$height;
+}
+@mixin width ($width){
+	width:$width;
+}
+@mixin min-width ($minwidth){
+	min-width:$minwidth;
+}
+
+//font size
+@mixin font ($font-value){
+	font-size:$font-value;
+}
+@mixin font-weight ($font-weight){
+	font-weight:$font-weight;
+}
+@mixin position ($value){
+	position:$value;
+}
+
+
+//padding
+@mixin padding($padding-value){
+	padding:$padding-value;
+}
+@mixin padding-top($paddingtop-value){
+	padding-top:$paddingtop-value;
+}
+@mixin padding-right($paddingright-value){
+	padding-right:$paddingright-value;
+}
+@mixin padding-bottom($paddingbottom-value){
+	padding-bottom:$paddingbottom-value;
+}
+@mixin padding-left($paddingleft-value){
+	padding-left:$paddingleft-value;
+}
+
+
+//margin
+@mixin margin($margin-value){
+	margin:$margin-value;
+}
+@mixin margin-top($margintop-value){
+	margin-top:$margintop-value;
+}
+@mixin margin-right($marginright-value){
+	margin-right:$marginright-value;
+}
+@mixin margin-bottom($marginbottom-value){
+	margin-bottom:$marginbottom-value;
+}
+@mixin margin-left($marginleft-value){
+	margin-left:$marginleft-value;
+}
+
+
+
+@mixin display-flex($value) {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: $value;
+}
+
+@mixin flex($value) {
+  -webkit-box-flex: 0;
+  -ms-flex: $value;
+  flex: $value;
+}
+
+@mixin flex-wrap($value) {
+  -ms-flex-wrap: $value;
+  flex-wrap: $value;
+}
+
+@mixin flex-direction-column($value) {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: $value;
+  flex-direction: $value;
+}
+
+@mixin justify-content-between {
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+
+@mixin align-items-center {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+
+@mixin primary-button ($color) {
+  background-color: $color;
+  border-color: $color;
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: $color !important;
+    border-color: $color !important;
+    opacity: 0.8;
+    box-shadow: 0 0 0 0.2rem rgba(217,78,59,.5) !important;
+  }
+}
+
+
+//Responsive Resolution
+@mixin screen($size) {
+  $fhd: "(max-width: 1920px)";
+  $tabletXL: "(min-width: 768px) and (max-width: 991px)"; 
+  $laptop: "(min-width: 1201px) and (max-width: 1440px)";
+  $desktops: "(min-width: 992px) and (max-width: 1200px)";
+  $tablet: "(min-width: 768px) and (max-width: 991.98px)";
+  $upmobile: "(min-width: 768px)";
+  $uplaptop: "(min-width: 1440px)";
+  $mobile: "(max-width: 767px)";
+
+  @if $size == desktops {
+    @media only screen and #{$desktops} {
+      @content;
+    }
+  }
+  @else if $size == fhd {
+    @media only screen and #{$fhd} {
+      @content;
+    }
+  }
+  @else if $size == laptop {
+    @media only screen and #{$laptop} {
+      @content;
+    }
+  }
+  @else if $size == tabletXL {
+    @media only screen and #{$tabletXL} {
+      @content;
+    }
+  }
+  @else if $size == tablet {
+    @media only screen and #{$tablet} {
+      @content;
+    }
+  }
+  @else if $size == mobile {
+    @media only screen and #{$mobile} {
+      @content;
+    }
+  }
+  @else if $size == upmobile {
+    @media only screen and #{$upmobile} {
+      @content;
+    }
+  }
+  @else if $size == uplaptop {
+    @media only screen and #{$uplaptop} {
+      @content;
+    }
+  } 
+  @else {
+    @media only screen and #{$size} {
+      @content;
+    }
+  }
+
+}
+

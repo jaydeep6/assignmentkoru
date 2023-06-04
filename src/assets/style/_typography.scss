@@ -1,0 +1,91 @@
+@font-face {
+  font-family: 'open_sanslight';
+  src: url('../font/OpenSans-Light-webfont.woff') format('woff'),
+    url('../font/OpenSans-Light-webfont.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+@font-face {
+  font-family: 'open_sansregular';
+  src: url('../font/OpenSans-Regular-webfont.woff') format('woff'),
+    url('../font/OpenSans-Regular-webfont.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'open_sanssemibold';
+  src: url('../font/OpenSans-Semibold-webfont.woff') format('woff'),
+    url('../font/OpenSans-Semibold-webfont.ttf') format('truetype');
+  font-display: swap;
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'open_sansextrabold';
+  src: url('../font/OpenSans-ExtraBold-webfont.woff') format('woff'),
+    url('../font/OpenSans-ExtraBold-webfont.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+*{
+  font-family: 'open_sansregular' !important;
+}
+
+body {
+  @include font (16px);
+  overflow-x: hidden;
+  @include height (100%);
+  @include margin (0);
+  outline: transparent;
+}
+
+a {
+  &:hover {
+    outline: none;
+    text-decoration: none;
+  }
+  &:focus {
+    outline: none;
+    text-decoration: none;
+  }
+}
+
+table {
+  @include width (100%);
+}
+
+img {
+  max-width: 100%;
+}
+
+ul,
+ol {
+  list-style: none;
+  @include margin (0px);
+  @include padding (0px);
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+p {
+  color: $muted;
+}
+
+h1,
+h2,
+h3 {
+  color: $black;
+}
+
+.btn-primary {
+  @include primary-button($orange)
+}

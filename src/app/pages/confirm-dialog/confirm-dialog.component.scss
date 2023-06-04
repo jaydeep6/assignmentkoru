@@ -1,0 +1,67 @@
+@import '../../../assets/style/variable';
+@import '../../../assets/style/defineMixins';
+
+.confirm_dialog {
+    @include height (135px);
+    overflow: hidden;
+    @include display-flex(flex);
+    @include screen(mobile) {
+        @include height (105px);
+    }
+    .icon_leftside_box {
+        background-color: $orange_dark;
+        @include display-flex(flex);
+        @include align-items-center();
+        justify-content: center;
+        
+        @include screen(mobile) {
+            @include width (55px);
+        }
+    }
+    
+    .right_box {
+        @include display-flex(flex);
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: center;
+        @include padding-right (0px);
+        .delete-button {
+            @include width (40px);
+            @include height (25px);
+            background: $orange;
+            border-radius: 4px;
+            @include font-weight(400);
+            @include font(12px);
+            @include line(16px);
+            color: $white;
+            outline: none;
+            border: unset;
+            cursor: pointer;
+        }
+        
+        .cancel-button {
+            @include margin-left (12px);
+            cursor: pointer;
+            outline: none;
+            @include  padding (4px 10px 5px);
+            @include width (58px);
+            @include height (25px);
+            background: $white;
+            border: 1px solid #A9A9A9;
+            border-radius: 3px;
+            @include font-weight(400);
+            @include font(12px);
+            @include line(16px);
+            color: $black;
+        }
+
+        .mat_title {
+            @include font(13px);
+            @include line(19px);
+            @include font-weight(700);
+            @include margin-bottom (0px);
+            
+        }
+    }
+
+}

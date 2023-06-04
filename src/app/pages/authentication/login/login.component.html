@@ -1,0 +1,54 @@
+<section class="login_component">
+  <div class="container-fluid p-0">
+    <div class="row no-gutters align-items-center">
+      <div class="col-md-7 col-lg-7 col-xl-7">
+        
+        <div class="left_panel_content">
+          <h1><span>Digital</span> Platform <div> for distance <span>learning</span></div></h1>
+          <p>Internet and online based digital technologies such as desktop computers, mobile phones and other</p>
+          <div class="chat_icon">
+            <img src="assets/images/chat.svg" />
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-5 col-lg-5 col-xl-5">
+        <div class="right_content_view">
+        <div class="logo">
+          <img src="assets/images/logo.svg" alt="">
+          <img src="assets/images/lock_icons.svg" alt="">
+          <h3>Welcome back</h3>
+        </div>
+
+        <!-- Form Start -->
+        <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+          <div class="inputWithIcon">
+            <input [ngClass]="{'border-danger': (submitted && f['email'].errors?.['required'])}" type="email" placeholder="username"  formControlName="email">
+            <img src="assets/images/email_icon.svg" alt="">
+            <div *ngIf="submitted && f['email'].errors" class="error_msg">
+              <div *ngIf="f['email'].errors?.['required']">Email is required.</div>
+              <div *ngIf="f['email'].errors?.['email']">Email must be a valid email address.</div>
+            </div>
+          </div>
+          
+          
+          <div class="inputWithIcon mb-0">
+            <input type="password" [ngClass]="{'border-danger': (submitted && f['password'].errors?.['required'])}" placeholder="password" formControlName="password">
+            <img src="assets/images/password_icon.svg" alt="">
+            <div *ngIf="submitted && f['password'].errors" class="error_msg">
+              <div *ngIf="f['password'].errors['required']">Password is required.</div>
+              <div *ngIf="f['password'].errors['pattern']">Please enter atleast 8 character with number, symbol, capital and small letter</div>
+            </div>
+          </div>
+          <a href="#" class="forgotPassword">Forgot Password?</a>
+          <button type="submit" class="btn btn-primary btn-block">Login</button>
+
+        </form>
+
+        <a href="#" class="sign_up">Don’t have an Account? <span>Sign Up</span></a>
+      </div>
+      </div>
+    </div>
+  </div>
+
+</section>

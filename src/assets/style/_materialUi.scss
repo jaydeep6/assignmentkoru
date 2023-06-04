@@ -1,0 +1,158 @@
+.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background,
+.mat-checkbox-checked.mat-accent .mat-checkbox-background {
+    background-color: $info;
+}
+
+.mat-checkbox-ripple .mat-ripple-element,
+.mat-checkbox-checked.mat-accent .mat-checkbox-background {
+    background-color: $info;
+}
+
+
+.mat-elevation-z8 {
+    overflow-x: auto;
+    box-shadow: none;
+    @include height (calc(100vh - 140px));
+
+    @include screen(mobile) {
+        @include height (auto);
+    }
+
+    .mat-table {
+        border-collapse: collapse;
+        border: 1px solid $border_color;
+        @include width (100%);
+
+        .mat-row,
+        .mat-header-row,
+        .mat-footer-row,
+        th.mat-header-cell,
+        td.mat-cell,
+        td.mat-footer-cell {
+            border-bottom-color: transparent;
+
+            @include screen(mobile) {
+                @include min-width (800px);
+            }
+        }
+
+        @include screen(mobile) {
+            @include min-width (800px);
+        }
+
+        .mat-header-cell {
+            @include padding (8px 30px !important);
+            border-right: 1px solid $border_color;
+        }
+
+        .mat-cell {
+            @include padding (8px 30px);
+            border-top: 1px solid $border_color;
+
+        }
+
+        .mat-column-option:last-child {
+            border-right: 1px solid transparent;
+        }
+
+        .mat-cell:not(:last-child) {
+            border-right: 1px solid $border_color;
+        }
+
+        .mat-column-email {
+            @include screen(mobile) {
+
+                @include min-width(200px);
+            }
+        }
+
+        .mat-column-phone {
+            @include screen(mobile) {
+
+                @include min-width(200px);
+            }
+        }
+
+        .mat-column-selectAll {
+            word-wrap: break-word !important;
+            white-space: unset !important;
+            flex: 0 0 6% !important;
+            @include width (6% !important);
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+            word-break: break-word;
+            -ms-hyphens: auto;
+            -moz-hyphens: auto;
+            -webkit-hyphens: auto;
+            hyphens: auto;
+        }
+    }
+
+    .mat-row:hover {
+        background-color: $ligh_orange;
+    }
+
+    .mat-cell,
+    .mat-footer-cell {
+        @include font (11px);
+        @include line(14px)
+    }
+
+
+    .mat-column-option .show_on_hover {
+        display: none;
+    }
+
+    .mat-row:hover .show_on_hover {
+        display: block;
+    }
+}
+
+
+
+
+button:focus,
+button:active:focus,
+button.active:focus {
+    outline: none !important;
+    outline-style: none !important;
+}
+
+
+::ng-deep #toast-container>.toast-success {
+    background-image: url('../images/right_icons.svg') !important;
+}
+
+.mat-dialog-container {
+    @include padding (0px 24px 0px 0px !important);
+    @include height (135px !important);
+    @include width (350px !important);
+    @include screen(mobile) {
+        @include height (105px !important);
+    }
+}
+
+.cdk-drag-preview {
+    box-sizing: border-box;
+    border-radius: 4px;
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+        0 8px 10px 1px rgba(0, 0, 0, 0.14),
+        0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+.cdk-drag-placeholder {
+    opacity: 0;
+}
+
+.cdk-drag-animating {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.cdk-drop-list-dragging .mat-row:not(.cdk-drag-placeholder) {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+::ng-deep.custom-mat-checkbox .mat-checkbox-frame {
+    border-color: #737373;
+
+}
